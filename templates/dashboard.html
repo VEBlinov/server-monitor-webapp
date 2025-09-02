@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Monitor - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🖥️ Server Monitor Dashboard</h1>
+            <p>VEBlinov Server - 109.71.240.28</p>
+        </header>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>CPU Usage</h3>
+                <div class="metric-value" id="cpu-percent">--%</div>
+                <div class="progress-bar">
+                    <div class="progress" id="cpu-progress"></div>
+                </div>
+            </div>
+            
+            <div class="metric-card">
+                <h3>Memory Usage</h3>
+                <div class="metric-value" id="memory-percent">--%</div>
+                <div class="progress-bar">
+                    <div class="progress" id="memory-progress"></div>
+                </div>
+            </div>
+            
+            <div class="metric-card">
+                <h3>Disk Usage</h3>
+                <div class="metric-value" id="disk-percent">--%</div>
+                <div class="progress-bar">
+                    <div class="progress" id="disk-progress"></div>
+                </div>
+            </div>
+            
+            <div class="metric-card">
+                <h3>Server Uptime</h3>
+                <div class="metric-value" id="uptime">-- days</div>
+                <div class="metric-subtitle">Last update: <span id="last-update">--</span></div>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <button onclick="refreshData()" class="btn btn-primary">🔄 Refresh</button>
+            <button onclick="autoRefresh()" class="btn btn-secondary" id="auto-btn">▶️ Auto Refresh</button>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
